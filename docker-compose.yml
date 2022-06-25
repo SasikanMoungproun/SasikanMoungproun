@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+
+  db:
+    #image: mongo:latest
+    build: ./mongodb_replica
+    restart: always
+    ports:
+      - 27018:27018
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: utt_app_db
+      MONGO_INITDB_USER: utt_app_db
+      MONGO_INITDB_PWD: utt_app_db
+      MONGO_REPLICA_HOST: localhost
+      MONGO_REPLICA_PORT: 27018
+    volumes:
+      - ./db:/data/db
+      # - ./create-user.js:/docker-entrypoint-initdb.d/create-user.js
+      # - ./mongo/mongod.conf:/etc/mongod.conf
+    networks:
+      - utt_app
+
+networks:
+  utt_app:
