@@ -30,28 +30,28 @@ const navs: Navs = [
         label: 'ข้อมูลสถานีรถโดยสาร', href: '#', icon: mdiBusStop,
         children: [
             { label: 'สถานีรถโดยสารทั้งหมด', href: '/busstop', icon: mdiBusStop },
-            { label: 'เพิ่มสถานีรถโดยสาร', href: '/bus/add', icon: mdiPlusCircle },
+            { label: 'เพิ่มสถานีรถโดยสาร', href: '/busstop/add', icon: mdiPlusCircle },
         ]
     },
     {
         label: 'เส้นทางรถโดยสาร', href: '#', icon: mdiMapMarkerPath,
         children: [
-            { label: 'เส้นทางรถโดยสารทั้งหมด', href: '/bus', icon: mdiMapMarkerPath },
-            { label: 'เพิ่มเส้นทาง', href: '/bus/add', icon: mdiPlusCircle },
+            { label: 'เส้นทางรถโดยสารทั้งหมด', href: '/busline', icon: mdiMapMarkerPath },
+            { label: 'เพิ่มเส้นทาง', href: '/busline/add', icon: mdiPlusCircle },
         ]
     },
     {
         label: 'Location', href: '#', icon: mdiMapMarker,
         children: [
-            { label: 'Location ทั้งหมด', href: '/bus', icon: mdiMapMarker },
-            { label: 'เพิ่ม Location', href: '/bus/add', icon: mdiPlusCircle },
+            { label: 'Location ทั้งหมด', href: '/location', icon: mdiMapMarker },
+            { label: 'เพิ่ม Location', href: '/location/add', icon: mdiPlusCircle },
         ]
     },
     {
         label: 'ข้อมูลของสถานที่ท่องเที่ยว', href: '#', icon: mdiCameraImage,
         children: [
-            { label: 'ข้อมูลสถานที่ท่องเที่ยวทั้งหมด', href: '/bus', icon: mdiCameraImage },
-            { label: 'เพิ่มสถานที่ท่องเที่ยว', href: '/bus/add', icon: mdiPlusCircle },
+            { label: 'ข้อมูลสถานที่ท่องเที่ยวทั้งหมด', href: '/tour', icon: mdiCameraImage },
+            { label: 'เพิ่มสถานที่ท่องเที่ยว', href: '/tour/add', icon: mdiPlusCircle },
         ]
     },
 ]
