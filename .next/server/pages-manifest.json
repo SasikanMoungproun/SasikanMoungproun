@@ -1,7 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/driverjob": "pages/driverjob.js",
-  "/driverjob/add": "pages/driverjob/add.js"
+  "/_document": "pages/_document.js"
 }

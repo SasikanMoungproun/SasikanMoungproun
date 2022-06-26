@@ -29,7 +29,7 @@ const navs: Navs = [
     {
         label: 'ข้อมูลสถานีรถโดยสาร', href: '#', icon: mdiBusStop,
         children: [
-            { label: 'สถานีรถโดยสารทั้งหมด', href: '/bus', icon: mdiBusStop },
+            { label: 'สถานีรถโดยสารทั้งหมด', href: '/busstop', icon: mdiBusStop },
             { label: 'เพิ่มสถานีรถโดยสาร', href: '/bus/add', icon: mdiPlusCircle },
         ]
     },
