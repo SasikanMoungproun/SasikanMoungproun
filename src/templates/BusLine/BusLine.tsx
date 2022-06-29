@@ -29,19 +29,18 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  idbus: number,
-  model: string,
-  licensePalate: string,
-  brand: string,
-  color: string,
-  date : string,
+  idbusline: string,
+  topic: string,
+  details: string,
+  status: string,
+  createdate: string,
 ) {
-  return { idbus, model, licensePalate, brand, color, date };
+  return { idbusline, topic, details, status, createdate };
 }
 
 const rows = [
-  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', ''),
-  createData(2,'y', '234', 'Honda', 'เขียว', ''),
+  createData('1','ศิลาอาสน์', '', '', '' ),
+  createData('2','อนุสาวรีย์', '', '', ''),
 ];
 
 export default function CustomizedTables() {
@@ -50,25 +49,23 @@ export default function CustomizedTables() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Id</StyledTableCell>
-            <StyledTableCell align="right">Model</StyledTableCell>
-            <StyledTableCell align="right">Palate</StyledTableCell>
-            <StyledTableCell align="right">Brand</StyledTableCell>
-            <StyledTableCell align="right">Color</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
+            <StyledTableCell>IdBusLine</StyledTableCell>
+            <StyledTableCell>Topic</StyledTableCell>
+            <StyledTableCell>Details</StyledTableCell>
+            <StyledTableCell>Status</StyledTableCell>
+            <StyledTableCell align="right">Createdate</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.idbus}>
+            <StyledTableRow key={row.idbusline}>
               <StyledTableCell component="th" scope="row">
-                {row.idbus}
+                {row.idbusline}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.model}</StyledTableCell>
-              <StyledTableCell align="right">{row.licensePalate}</StyledTableCell>
-              <StyledTableCell align="right">{row.brand}</StyledTableCell>
-              <StyledTableCell align="right">{row.color}</StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell>{row.topic}</StyledTableCell>
+              <StyledTableCell>{row.details}</StyledTableCell>
+              <StyledTableCell>{row.status}</StyledTableCell>
+              <StyledTableCell>{row.createdate}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

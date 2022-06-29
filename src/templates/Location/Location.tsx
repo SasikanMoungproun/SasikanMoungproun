@@ -29,19 +29,20 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  idbus: number,
-  model: string,
-  licensePalate: string,
-  brand: string,
-  color: string,
-  date : string,
+  idlocation: string,
+  namelocation: string,
+  latitude: string,
+  longtitude: string,
+  time: string,
+  status : string,
+  createdate : string,
 ) {
-  return { idbus, model, licensePalate, brand, color, date };
+  return { idlocation, namelocation, latitude, longtitude, time, status, createdate };
 }
 
 const rows = [
-  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', ''),
-  createData(2,'y', '234', 'Honda', 'เขียว', ''),
+  createData('1','ศิลาอาสน์', '', '', '10.10', '',''),
+  createData('2','', '', '', '', '',''),
 ];
 
 export default function CustomizedTables() {
@@ -51,24 +52,26 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Id</StyledTableCell>
-            <StyledTableCell align="right">Model</StyledTableCell>
-            <StyledTableCell align="right">Palate</StyledTableCell>
-            <StyledTableCell align="right">Brand</StyledTableCell>
-            <StyledTableCell align="right">Color</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
+            <StyledTableCell>NameLocation</StyledTableCell>
+            <StyledTableCell>Latitude</StyledTableCell>
+            <StyledTableCell>Longtitude</StyledTableCell>
+            <StyledTableCell>Time</StyledTableCell>
+            <StyledTableCell>Status</StyledTableCell>
+            <StyledTableCell>CreateDate</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.idbus}>
+            <StyledTableRow key={row.idlocation}>
               <StyledTableCell component="th" scope="row">
-                {row.idbus}
+                {row.idlocation}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.model}</StyledTableCell>
-              <StyledTableCell align="right">{row.licensePalate}</StyledTableCell>
-              <StyledTableCell align="right">{row.brand}</StyledTableCell>
-              <StyledTableCell align="right">{row.color}</StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell>{row.namelocation}</StyledTableCell>
+              <StyledTableCell>{row.latitude}</StyledTableCell>
+              <StyledTableCell>{row.longtitude}</StyledTableCell>
+              <StyledTableCell>{row.time}</StyledTableCell>
+              <StyledTableCell>{row.status}</StyledTableCell>
+              <StyledTableCell>{row.createdate}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

@@ -29,19 +29,18 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  idbus: number,
-  model: string,
-  licensePalate: string,
-  brand: string,
-  color: string,
-  date : string,
+  idbusstop: string,
+  namebusstop: string,
+  idlocation: string,
+  status: string,
+  createdate: string,
 ) {
-  return { idbus, model, licensePalate, brand, color, date };
+  return { idbusstop, namebusstop, idlocation, status, createdate };
 }
 
 const rows = [
-  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', ''),
-  createData(2,'y', '234', 'Honda', 'เขียว', ''),
+  createData('1', 'สถานีรถไฟศิลาอาสน์', '1', '', ''),
+  createData('2', 'อนุสาวรีย์พระยาพิชัยดาบหัก', '2', '', ''),
 ];
 
 export default function CustomizedTables() {
@@ -51,24 +50,22 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Id</StyledTableCell>
-            <StyledTableCell align="right">Model</StyledTableCell>
-            <StyledTableCell align="right">Palate</StyledTableCell>
-            <StyledTableCell align="right">Brand</StyledTableCell>
-            <StyledTableCell align="right">Color</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
+            <StyledTableCell>NameBusStop</StyledTableCell>
+            <StyledTableCell>IdLocation</StyledTableCell>
+            <StyledTableCell>Status</StyledTableCell>
+            <StyledTableCell>CerateDate</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.idbus}>
+            <StyledTableRow key={row.idbusstop}>
               <StyledTableCell component="th" scope="row">
-                {row.idbus}
+                {row.idbusstop}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.model}</StyledTableCell>
-              <StyledTableCell align="right">{row.licensePalate}</StyledTableCell>
-              <StyledTableCell align="right">{row.brand}</StyledTableCell>
-              <StyledTableCell align="right">{row.color}</StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell>{row.namebusstop}</StyledTableCell>
+              <StyledTableCell>{row.idlocation}</StyledTableCell>
+              <StyledTableCell>{row.status}</StyledTableCell>
+              <StyledTableCell>{row.createdate}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

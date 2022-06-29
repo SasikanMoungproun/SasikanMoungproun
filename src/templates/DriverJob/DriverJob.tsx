@@ -41,8 +41,8 @@ function createData(
 }
 
 const rows = [
-  createData( '1','1', 'B1122', 'Honda', 'ชมพู', '', ''),
-  createData( '2','5', '234', 'Honda', 'เขียว', '', '')
+  createData( '1','1', '1', '12.30', '16.00', 'ทำงาน', ''),
+  createData( '2','5', '5', '15.11', '20.00', 'ทำงาน', '')
 ];
 
 export default function CustomizedTables() {
