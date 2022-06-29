@@ -29,19 +29,20 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  idbus: number,
-  model: string,
-  licensePalate: string,
-  brand: string,
-  color: string,
-  date : string,
+  idDriverjob: string,
+  idbus: string,
+  iduser: string,
+  startdate: string,
+  enddate: string,
+  status: string,
+  createdate : string,
 ) {
-  return { idbus, model, licensePalate, brand, color, date };
+  return { idDriverjob ,idbus, iduser, startdate, enddate, status, createdate };
 }
 
 const rows = [
-  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', ''),
-  createData(2,'y', '234', 'Honda', 'เขียว', ''),
+  createData( '1','1', 'B1122', 'Honda', 'ชมพู', '', ''),
+  createData( '2','5', '234', 'Honda', 'เขียว', '', '')
 ];
 
 export default function CustomizedTables() {
@@ -50,25 +51,27 @@ export default function CustomizedTables() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Id</StyledTableCell>
-            <StyledTableCell align="right">Model</StyledTableCell>
-            <StyledTableCell align="right">Palate</StyledTableCell>
-            <StyledTableCell align="right">Brand</StyledTableCell>
-            <StyledTableCell align="right">Color</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
+            <StyledTableCell>IdDriverjob</StyledTableCell>
+            <StyledTableCell align="right">IdBus</StyledTableCell>
+            <StyledTableCell align="right">IdUser</StyledTableCell>
+            <StyledTableCell align="right">Startdate</StyledTableCell>
+            <StyledTableCell align="right">Enddate</StyledTableCell>
+            <StyledTableCell align="right">Status</StyledTableCell>
+            <StyledTableCell align="right">Createdate</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.idbus}>
+            <StyledTableRow key={row.idDriverjob}>
               <StyledTableCell component="th" scope="row">
-                {row.idbus}
+                {row.idDriverjob}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.model}</StyledTableCell>
-              <StyledTableCell align="right">{row.licensePalate}</StyledTableCell>
-              <StyledTableCell align="right">{row.brand}</StyledTableCell>
-              <StyledTableCell align="right">{row.color}</StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell align="right">{row.idbus}</StyledTableCell>
+              <StyledTableCell align="right">{row.iduser}</StyledTableCell>
+              <StyledTableCell align="right">{row.startdate}</StyledTableCell>
+              <StyledTableCell align="right">{row.enddate}</StyledTableCell>
+              <StyledTableCell align="right">{row.status}</StyledTableCell>
+              <StyledTableCell align="right">{row.createdate}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

@@ -34,14 +34,15 @@ function createData(
   licensePalate: string,
   brand: string,
   color: string,
-  date : string,
+  status : string,
+  createdate : string,
 ) {
-  return { idbus, model, licensePalate, brand, color, date };
+  return { idbus, model, licensePalate, brand, color, status, createdate };
 }
 
 const rows = [
-  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', ''),
-  createData(2,'y', '234', 'Honda', 'เขียว', ''),
+  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', '',''),
+  createData(2,'y', '234', 'Honda', 'เขียว', '',''),
 ];
 
 export default function CustomizedTables() {
@@ -55,7 +56,8 @@ export default function CustomizedTables() {
             <StyledTableCell align="right">Palate</StyledTableCell>
             <StyledTableCell align="right">Brand</StyledTableCell>
             <StyledTableCell align="right">Color</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
+            <StyledTableCell align="right">Status</StyledTableCell>
+            <StyledTableCell align="right">CreateDate</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,7 +70,8 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.licensePalate}</StyledTableCell>
               <StyledTableCell align="right">{row.brand}</StyledTableCell>
               <StyledTableCell align="right">{row.color}</StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell align="right">{row.status}</StyledTableCell>
+              <StyledTableCell align="right">{row.createdate}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

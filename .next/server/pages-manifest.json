@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/tour": "pages/tour.js",
-  "/tour/add": "pages/tour/add.js"
+  "/busline": "pages/busline.js",
+  "/bus/add": "pages/bus/add.js",
+  "/location": "pages/location.js"
 }
