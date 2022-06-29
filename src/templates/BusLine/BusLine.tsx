@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -49,11 +50,12 @@ export default function CustomizedTables() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>IdBusLine</StyledTableCell>
+            <StyledTableCell>Id</StyledTableCell>
             <StyledTableCell>Topic</StyledTableCell>
             <StyledTableCell>Details</StyledTableCell>
             <StyledTableCell>Status</StyledTableCell>
-            <StyledTableCell align="right">Createdate</StyledTableCell>
+            <StyledTableCell>Createdate</StyledTableCell>
+            <StyledTableCell></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -66,6 +68,10 @@ export default function CustomizedTables() {
               <StyledTableCell>{row.details}</StyledTableCell>
               <StyledTableCell>{row.status}</StyledTableCell>
               <StyledTableCell>{row.createdate}</StyledTableCell>
+              <StyledTableCell align="center">
+                <Button variant="contained" color="success">Edit</Button>
+                <Button variant="contained" color="error">Del</Button>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

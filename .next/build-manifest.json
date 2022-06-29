@@ -25,15 +25,30 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/account": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/account.js"
+    ],
+    "/bus": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/bus.js"
+    ],
     "/busline": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/busline.js"
     ],
-    "/location": [
+    "/busstop": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/location.js"
+      "static/chunks/pages/busstop.js"
+    ],
+    "/driverjob": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/driverjob.js"
     ]
   },
   "ampFirstPages": []

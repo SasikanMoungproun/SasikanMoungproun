@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,19 +30,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  idbus: number,
-  model: string,
-  licensePalate: string,
-  brand: string,
-  color: string,
-  date : string,
+  idtour: string,
+  nametour: string,
+  details: string,
+  idlocation: string,
+  vdopaths: string,
+  imgpaths: string,
+  soundpaths: string,
+  status: string,
+  createdate : string,
 ) {
-  return { idbus, model, licensePalate, brand, color, date };
+  return { idtour, nametour, details, idlocation, vdopaths, imgpaths, soundpaths, status, createdate };
 }
 
 const rows = [
-  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', ''),
-  createData(2,'y', '234', 'Honda', 'เขียว', ''),
+  createData('1','สถานีรถไฟศิลาอาสน์', '', '1', '', '','','',''),
+  createData('2','อนุสาวรีย์พระยาพิชัยดาบหัก', '', '2', '', '', '', '', ''),
 ];
 
 export default function CustomizedTables() {
@@ -51,24 +55,35 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Id</StyledTableCell>
-            <StyledTableCell align="right">Model</StyledTableCell>
-            <StyledTableCell align="right">Palate</StyledTableCell>
-            <StyledTableCell align="right">Brand</StyledTableCell>
-            <StyledTableCell align="right">Color</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
+            <StyledTableCell align="center" >NameTour</StyledTableCell>
+            <StyledTableCell align="center">Details</StyledTableCell>
+            <StyledTableCell align="center">IdLocation</StyledTableCell>
+            <StyledTableCell align="center">VDO Paths</StyledTableCell>
+            <StyledTableCell align="center">IMG Paths</StyledTableCell>
+            <StyledTableCell align="center">Sound Paths</StyledTableCell>
+            <StyledTableCell align="center">Status</StyledTableCell>
+            <StyledTableCell align="center">CreateDate</StyledTableCell>
+            <StyledTableCell align="center"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.idbus}>
+            <StyledTableRow key={row.idtour}>
               <StyledTableCell component="th" scope="row">
-                {row.idbus}
+                {row.idtour}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.model}</StyledTableCell>
-              <StyledTableCell align="right">{row.licensePalate}</StyledTableCell>
-              <StyledTableCell align="right">{row.brand}</StyledTableCell>
-              <StyledTableCell align="right">{row.color}</StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell align="center">{row.nametour}</StyledTableCell>
+              <StyledTableCell align="center">{row.details}</StyledTableCell>
+              <StyledTableCell align="center">{row.idlocation}</StyledTableCell>
+              <StyledTableCell align="center">{row.vdopaths}</StyledTableCell>
+              <StyledTableCell align="center">{row.imgpaths}</StyledTableCell>
+              <StyledTableCell align="center">{row.soundpaths}</StyledTableCell>
+              <StyledTableCell align="center">{row.status}</StyledTableCell>
+              <StyledTableCell align="center">{row.createdate}</StyledTableCell>
+              <StyledTableCell align="center">
+                <Button variant="contained" color="success">Edit</Button>
+                <Button variant="contained" color="error">Del</Button>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

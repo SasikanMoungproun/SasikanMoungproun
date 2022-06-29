@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,7 +30,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  iduser: number,
+  iduser: string,
   fullname: string,
   email: string,
   useername: string,
@@ -44,8 +45,8 @@ function createData(
 }
 
 const rows = [
-  createData(1,'Sasikan', 'beem@gmail.com', 'Sisa', '1234', 'admin','','','','20/06/22' ),
-  createData(2,'Wichet', 'toey@gmail.com', 'Toey', '5678', 'admin','', '', '', ''),
+  createData('1','Sasikan', 'beem@gmail.com', 'Sisa', '1234', 'admin','','','','20/06/22' ),
+  createData('2','Wichet', 'toey@gmail.com', 'Toey', '5678', 'admin','', '', '', ''),
 ];
 
 export default function CustomizedTables() {
@@ -64,6 +65,7 @@ export default function CustomizedTables() {
             <StyledTableCell align="right">Social ID</StyledTableCell>
             <StyledTableCell align="right">Social type</StyledTableCell>
             <StyledTableCell align="right">CreatDate</StyledTableCell>
+            <StyledTableCell align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -81,6 +83,10 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.socialID}</StyledTableCell>
               <StyledTableCell align="right">{row.socialtype}</StyledTableCell>
               <StyledTableCell align="right">{row.createdate}</StyledTableCell>
+              <StyledTableCell align="center">
+                <Button variant="contained" color="success">Edit</Button>
+                <Button variant="contained" color="error">Del</Button>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

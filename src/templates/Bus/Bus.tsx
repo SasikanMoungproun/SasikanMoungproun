@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,7 +30,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-  idbus: number,
+  idbus: string,
   model: string,
   licensePalate: string,
   brand: string,
@@ -41,8 +42,8 @@ function createData(
 }
 
 const rows = [
-  createData(1,'EV', 'B1122', 'Honda', 'ชมพู', '',''),
-  createData(2,'y', '234', 'Honda', 'เขียว', '',''),
+  createData('1','EV', 'B1122', 'Honda', 'ชมพู', '',''),
+  createData('2','y', '234', 'Honda', 'เขียว', '',''),
 ];
 
 export default function CustomizedTables() {
@@ -58,6 +59,7 @@ export default function CustomizedTables() {
             <StyledTableCell align="right">Color</StyledTableCell>
             <StyledTableCell align="right">Status</StyledTableCell>
             <StyledTableCell align="right">CreateDate</StyledTableCell>
+            <StyledTableCell align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -72,6 +74,10 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.color}</StyledTableCell>
               <StyledTableCell align="right">{row.status}</StyledTableCell>
               <StyledTableCell align="right">{row.createdate}</StyledTableCell>
+              <StyledTableCell align="center">
+                <Button variant="contained" color="success">Edit</Button>
+                <Button variant="contained" color="error">Del</Button>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
