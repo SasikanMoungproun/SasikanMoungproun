@@ -35,14 +35,17 @@ function createData(
   useername: string,
   password: string,
   position: string,
-  date: string,
+  lastlogin : string,
+  socialID : string,
+  socialtype : string,
+  createdate: string,
 ) {
-  return { iduser, fullname, email, useername, password, position, date };
+  return { iduser, fullname, email, useername, password, position, lastlogin, socialID, socialtype, createdate };
 }
 
 const rows = [
-  createData(1,'Sasikan', 'beem@gmail.com', 'Sisa', '1234', 'admin', ''),
-  createData(2,'Wichet', 'toey@gmail.com', 'Toey', '5678', 'admin',''),
+  createData(1,'Sasikan', 'beem@gmail.com', 'Sisa', '1234', 'admin','','','','20/06/22' ),
+  createData(2,'Wichet', 'toey@gmail.com', 'Toey', '5678', 'admin','', '', '', ''),
 ];
 
 export default function CustomizedTables() {
@@ -57,7 +60,10 @@ export default function CustomizedTables() {
             <StyledTableCell align="right">Username</StyledTableCell>
             <StyledTableCell align="right">Password</StyledTableCell>
             <StyledTableCell align="right">Position</StyledTableCell>
-            <StyledTableCell align="right">Date</StyledTableCell>
+            <StyledTableCell align="right">Last login</StyledTableCell>
+            <StyledTableCell align="right">Social ID</StyledTableCell>
+            <StyledTableCell align="right">Social type</StyledTableCell>
+            <StyledTableCell align="right">CreatDate</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -71,7 +77,10 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.useername}</StyledTableCell>
               <StyledTableCell align="right">{row.password}</StyledTableCell>
               <StyledTableCell align="right">{row.position}</StyledTableCell>
-              <StyledTableCell align="right">{row.date}</StyledTableCell>
+              <StyledTableCell align="right">{row.lastlogin}</StyledTableCell>
+              <StyledTableCell align="right">{row.socialID}</StyledTableCell>
+              <StyledTableCell align="right">{row.socialtype}</StyledTableCell>
+              <StyledTableCell align="right">{row.createdate}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
