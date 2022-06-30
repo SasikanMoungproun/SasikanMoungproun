@@ -2,12 +2,16 @@ import { TimerOptions } from "timers"
 
 export interface AccountInput {
     
-    username: string
-    password: string
-    fullname: string
-    email : string
-    position : string
-    date : string
+    iduser: string,
+    fullname: string,
+    email: string,
+    username: string,
+    password: string,
+    position: string,
+    lastlogin : string,
+    socialID : string,
+    socialtype : string,
+    createdate: string,
 }
 
 export interface AccountFormProps {

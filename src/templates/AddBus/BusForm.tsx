@@ -10,19 +10,18 @@ import { mdiContentSave } from '@mdi/js'
 
 
 const schema = joi.object<BusInput>({
-    username: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Username'}),
-    password: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Password'}),
-    fullname: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ชื่อ-นามสกุล'}),
-    email: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ E-mail'}),
-    position: joi.string().required().trim().messages({'string.empty': 'โปรดระบุตำแหน่ง'}),
-    date: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่สมัคร'}),
-})
+    model: joi.string().required().trim().messages({'string.empty': 'โปรดระบุรุ่น'}),
+    licensePalate: joi.string().required().trim().messages({'string.empty': 'โปรดระบุเลขแผ่นป้ายทะเบียน'}),
+    brand: joi.string().required().trim().messages({'string.empty': 'โปรดระบุยีาห้อ'}),
+    color: joi.string().required().trim().messages({'string.empty': 'โปรดระบุสีของรถ'}),
+    createdate :joi.string().required().trim().messages({'string.empty': 'โปรดระบุวันที่'}),
+   })
 
 
 export default function BusForm({ onSubmit }: BusFormProps) {
 
     const { control, handleSubmit, formState: { errors } } = useForm<BusInput>({
-        defaultValues: { username: '', password: '', fullname: '', email :'', position :'',date:'' },
+        defaultValues: { model: '', licensePalate: '', brand: '', color :'', createdate :'', },
         resolver: joiResolver(schema)
     })
 
@@ -30,86 +29,72 @@ export default function BusForm({ onSubmit }: BusFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4">
             <Controller
                 control={control}
-                name="username"
+                name="model"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="Username" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.username?.message}
+                        label="รุ่น" 
+                        error={Boolean(errors.model)}
+                        helperText={errors.model?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="password"
+                name="licensePalate"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref}
                         {...props}
-                        label="Password"
-                        type="password"
-                        error={Boolean(errors.password)}
-                        helperText={errors.password?.message}
+                        label="แผ่นป้ายทะเบียน"
+                        error={Boolean(errors.licensePalate)}
+                        helperText={errors.licensePalate?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="fullname"
+                name="brand"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props} 
-                        label="ชื่อ-นามสกุล" 
-                        error={Boolean(errors.fullname)}
-                        helperText={errors.fullname?.message}
+                        label="ยี่ห้อ" 
+                        error={Boolean(errors.brand)}
+                        helperText={errors.brand?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="email"
+                name="color"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="E-mail" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.email?.message}
+                        label="สีของรถโดยสาร" 
+                        error={Boolean(errors.color)}
+                        helperText={errors.color?.message}
                         fullWidth />
                 )}
             />
+            
             <Controller
                 control={control}
-                name="position"
-                defaultValue=""
-                render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref} 
-                        {...props}
-                        label="ตำแหน่ง" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.position?.message}
-                        fullWidth />
-                )}
-            />
-            <Controller
-                control={control}
-                name="date"
+                name="createdate"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
                         label="ระบุวันที่สมัคร" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.date?.message}
+                        error={Boolean(errors.createdate)}
+                        helperText={errors.createdate?.message}
                         fullWidth />
                 )}
             />

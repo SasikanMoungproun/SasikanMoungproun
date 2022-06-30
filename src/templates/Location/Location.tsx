@@ -75,8 +75,8 @@ export default function CustomizedTables() {
               <StyledTableCell>{row.status}</StyledTableCell>
               <StyledTableCell>{row.createdate}</StyledTableCell>
               <StyledTableCell align="center">
-                <Button variant="contained" color="success">Edit</Button>
-                <Button variant="contained" color="error">Del</Button>
+                <Button size="small" variant="contained" color="success">Edit</Button>
+                <Button size="small" variant="contained" color="error">Del</Button>
               </StyledTableCell>
             </StyledTableRow>
           ))}

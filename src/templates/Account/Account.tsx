@@ -33,7 +33,7 @@ function createData(
   iduser: string,
   fullname: string,
   email: string,
-  useername: string,
+  username: string,
   password: string,
   position: string,
   lastlogin : string,
@@ -41,7 +41,7 @@ function createData(
   socialtype : string,
   createdate: string,
 ) {
-  return { iduser, fullname, email, useername, password, position, lastlogin, socialID, socialtype, createdate };
+  return { iduser, fullname, email, username, password, position, lastlogin, socialID, socialtype, createdate };
 }
 
 const rows = [
@@ -76,7 +76,7 @@ export default function CustomizedTables() {
               </StyledTableCell>
               <StyledTableCell align="right">{row.fullname}</StyledTableCell>
               <StyledTableCell align="right">{row.email}</StyledTableCell>
-              <StyledTableCell align="right">{row.useername}</StyledTableCell>
+              <StyledTableCell align="right">{row.username}</StyledTableCell>
               <StyledTableCell align="right">{row.password}</StyledTableCell>
               <StyledTableCell align="right">{row.position}</StyledTableCell>
               <StyledTableCell align="right">{row.lastlogin}</StyledTableCell>
@@ -84,8 +84,8 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.socialtype}</StyledTableCell>
               <StyledTableCell align="right">{row.createdate}</StyledTableCell>
               <StyledTableCell align="center">
-                <Button variant="contained" color="success">Edit</Button>
-                <Button variant="contained" color="error">Del</Button>
+                <Button size="small" variant="contained" color="success">Edit</Button>
+                <Button size="small" variant="contained" color="error">Del</Button>
               </StyledTableCell>
             </StyledTableRow>
           ))}

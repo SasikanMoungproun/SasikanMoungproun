@@ -2,8 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/busstop": "pages/busstop.js",
-  "/bus": "pages/bus.js",
-  "/driverjob": "pages/driverjob.js",
+  "/bus/add": "pages/bus/add.js",
   "/account": "pages/account.js"
 }

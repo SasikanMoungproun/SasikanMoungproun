@@ -15,14 +15,14 @@ const schema = joi.object<AccountInput>({
     fullname: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ชื่อ-นามสกุล'}),
     email: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ E-mail'}),
     position: joi.string().required().trim().messages({'string.empty': 'โปรดระบุตำแหน่ง'}),
-    date: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่สมัคร'}),
+    createdate: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่สมัคร'}),
 })
 
 
 export default function AccountForm({ onSubmit }: AccountFormProps) {
 
     const { control, handleSubmit, formState: { errors } } = useForm<AccountInput>({
-        defaultValues: { username: '', password: '', fullname: '', email :'', position :'',date:'' },
+        defaultValues: { username: '', password: '', fullname: '', email :'', position :'',createdate:'' },
         resolver: joiResolver(schema)
     })
 
@@ -101,7 +101,7 @@ export default function AccountForm({ onSubmit }: AccountFormProps) {
             />
             <Controller
                 control={control}
-                name="date"
+                name="createdate"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
@@ -109,7 +109,7 @@ export default function AccountForm({ onSubmit }: AccountFormProps) {
                         {...props}
                         label="ระบุวันที่สมัคร" 
                         error={Boolean(errors.username)}
-                        helperText={errors.date?.message}
+                        helperText={errors.createdate?.message}
                         fullWidth />
                 )}
             />
