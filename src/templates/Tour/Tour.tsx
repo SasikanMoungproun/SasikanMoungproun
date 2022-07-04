@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
+import Link from 'next/link';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -38,14 +39,14 @@ function createData(
   imgpaths: string,
   soundpaths: string,
   status: string,
-  createdate : string,
+  createdate: string,
 ) {
   return { idtour, nametour, details, idlocation, vdopaths, imgpaths, soundpaths, status, createdate };
 }
 
 const rows = [
-  createData('1','สถานีรถไฟศิลาอาสน์', '', '1', '', '','','',''),
-  createData('2','อนุสาวรีย์พระยาพิชัยดาบหัก', '', '2', '', '', '', '', ''),
+  createData('1', 'สถานีรถไฟศิลาอาสน์', '', '1', '', '', '', '', ''),
+  createData('2', 'อนุสาวรีย์พระยาพิชัยดาบหัก', '', '2', '', '', '', '', ''),
 ];
 
 export default function CustomizedTables() {
@@ -81,7 +82,9 @@ export default function CustomizedTables() {
               <StyledTableCell align="center">{row.status}</StyledTableCell>
               <StyledTableCell align="center">{row.createdate}</StyledTableCell>
               <StyledTableCell align="center">
-                <Button variant="contained" color="success">Edit</Button>
+                <Link href=''>
+                  <Button variant="outlined" color="success">Edit</Button>
+                </Link>
                 <Button variant="contained" color="error">Del</Button>
               </StyledTableCell>
             </StyledTableRow>

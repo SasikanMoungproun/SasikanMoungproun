@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
+import Link from 'next/link';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -36,17 +37,17 @@ function createData(
   username: string,
   password: string,
   position: string,
-  lastlogin : string,
-  socialID : string,
-  socialtype : string,
+  lastlogin: string,
+  socialID: string,
+  socialtype: string,
   createdate: string,
 ) {
   return { iduser, fullname, email, username, password, position, lastlogin, socialID, socialtype, createdate };
 }
 
 const rows = [
-  createData('1','Sasikan', 'beem@gmail.com', 'Sisa', '1234', 'admin','','','','20/06/22' ),
-  createData('2','Wichet', 'toey@gmail.com', 'Toey', '5678', 'admin','', '', '', ''),
+  createData('1', 'Sasikan', 'beem@gmail.com', 'Sisa', '1234', 'admin', '', '', '', '20/06/22'),
+  createData('2', 'Wichet', 'toey@gmail.com', 'Toey', '5678', 'admin', '', '', '', ''),
 ];
 
 export default function CustomizedTables() {
@@ -84,8 +85,10 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.socialtype}</StyledTableCell>
               <StyledTableCell align="right">{row.createdate}</StyledTableCell>
               <StyledTableCell align="center">
-                <Button size="small" variant="contained" color="success">Edit</Button>
-                <Button size="small" variant="contained" color="error">Del</Button>
+                <Link href='/account/edit'>
+                  <Button size="small" variant="contained" color="success">Edit</Button>
+                </Link>
+                <Button size="small" variant="contained" color="error" >Del</Button>
               </StyledTableCell>
             </StyledTableRow>
           ))}
