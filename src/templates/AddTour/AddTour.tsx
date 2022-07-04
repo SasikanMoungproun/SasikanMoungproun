@@ -13,7 +13,7 @@ export default function AddTour() {
         <div className="p-4">
             <header className="mb-4">
                 <Typography variant="h6">
-                    เพิ่มตำแหน่งของสถานที่
+                    เพิ่มสถานที่ท่องเที่ยว
                 </Typography>
             </header>
             <Card className="p-4 w-full max-w-md">

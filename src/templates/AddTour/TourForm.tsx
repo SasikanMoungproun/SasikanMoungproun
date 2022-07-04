@@ -10,19 +10,22 @@ import { mdiContentSave } from '@mdi/js'
 
 
 const schema = joi.object<TourInput>({
-    username: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Username'}),
-    password: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Password'}),
-    fullname: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ชื่อ-นามสกุล'}),
-    email: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ E-mail'}),
-    position: joi.string().required().trim().messages({'string.empty': 'โปรดระบุตำแหน่ง'}),
-    date: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่สมัคร'}),
+    nametour: joi.string().required().trim().messages({'string.empty': 'โปรดระบุชื่อสถานที่ท่องเที่ยว'}),
+    details: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องเพิ่มรายละเอียดของสถานที่ท่องเที่ยว'}),
+    idlocation: joi.string().required().trim().messages({'string.empty': 'กรุณาระบุตำแหน่ง'}),
+    vdopaths: joi.string().required().trim().messages({'string.empty': 'โปรดเพิ่ม vdo'}),
+    imgpaths: joi.string().required().trim().messages({'string.empty': 'โปรดเพิ่มรูปภาพ'}),
+    soundpaths: joi.string().required().trim().messages({'string.empty': 'โปรดเพิ่มไฟล์เสียง'}),
+    status: joi.string().required().trim().messages({'string.empty': 'โปรดระบุสถานะ'}),
+    createdate: joi.string().required().trim().messages({'string.empty': 'โปรดระบุวันที่เพิ่ม'}),
 })
 
 
 export default function TourForm({ onSubmit }: TourFormProps) {
 
     const { control, handleSubmit, formState: { errors } } = useForm<TourInput>({
-        defaultValues: { username: '', password: '', fullname: '', email :'', position :'',date:'' },
+        defaultValues: { nametour: '',details: '', idlocation: '', vdopaths :'', 
+        imgpaths :'',soundpaths :'',status :'',createdate :'' },
         resolver: joiResolver(schema)
     })
 
@@ -30,86 +33,113 @@ export default function TourForm({ onSubmit }: TourFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4">
             <Controller
                 control={control}
-                name="username"
+                name="nametour"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="Username" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.username?.message}
+                        label="ชื่อสถานที่ท่องเที่ยว" 
+                        error={Boolean(errors.nametour)}
+                        helperText={errors.nametour?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="password"
+                name="details"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref}
                         {...props}
-                        label="Password"
-                        type="password"
-                        error={Boolean(errors.password)}
-                        helperText={errors.password?.message}
+                        label="รายละเอียดของสถานที่ท่องเที่ยว"
+                        error={Boolean(errors.details)}
+                        helperText={errors.details?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="fullname"
+                name="idlocation"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props} 
-                        label="ชื่อ-นามสกุล" 
-                        error={Boolean(errors.fullname)}
-                        helperText={errors.fullname?.message}
+                        label="ID ตำแหน่งสถานที่ท่องเที่ยว" 
+                        error={Boolean(errors.idlocation)}
+                        helperText={errors.idlocation?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="email"
+                name="vdopaths"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="E-mail" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.email?.message}
+                        label="vdo" 
+                        error={Boolean(errors.vdopaths)}
+                        helperText={errors.vdopaths?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="position"
+                name="imgpaths"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="ตำแหน่ง" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.position?.message}
+                        label="รูปภาพ" 
+                        error={Boolean(errors.imgpaths)}
+                        helperText={errors.imgpaths?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="date"
+                name="soundpaths"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="ระบุวันที่สมัคร" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.date?.message}
+                        label="ไฟล์เสียง" 
+                        error={Boolean(errors.soundpaths)}
+                        helperText={errors.soundpaths?.message}
+                        fullWidth />
+                )}
+            />
+            <Controller
+                control={control}
+                name="status"
+                defaultValue=""
+                render={({ field: { ref, ...props } }) => (
+                    <TextField
+                        inputRef={ref}
+                        {...props}
+                        label="สถานะ"
+                        error={Boolean(errors.status)}
+                        helperText={errors.status?.message}
+                        fullWidth />
+                )}
+            />
+            <Controller
+                control={control}
+                name="createdate"
+                defaultValue=""
+                render={({ field: { ref, ...props } }) => (
+                    <TextField
+                        inputRef={ref}
+                        {...props}
+                        label="ระบุวันที่"
+                        error={Boolean(errors.createdate)}
+                        helperText={errors.createdate?.message}
                         fullWidth />
                 )}
             />

@@ -1,12 +1,14 @@
 import { TimerOptions } from "timers"
 
 export interface TourInput {
-    username: string
-    password: string
-    fullname: string
-    email : string
-    position : string
-    date : string
+    nametour: string
+    details: string
+    idlocation: string
+    vdopaths: string
+    imgpaths: string
+    soundpaths: string
+    status: string
+    createdate: string
 }
 
 export interface TourFormProps {
