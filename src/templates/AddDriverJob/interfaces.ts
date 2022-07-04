@@ -1,12 +1,12 @@
 import { TimerOptions } from "timers"
 
 export interface DriverJobInput {
-    username: string
-    password: string
-    fullname: string
-    email : string
-    position : string
-    date : string
+    idbus: string
+    iduser: string
+    startdate: string
+    enddate: string
+    status: string
+    createdate: string
 }
 
 export interface DriverJobFormProps {

@@ -10,19 +10,19 @@ import { mdiContentSave } from '@mdi/js'
 
 
 const schema = joi.object<DriverJobInput>({
-    username: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Username'}),
-    password: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Password'}),
-    fullname: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ชื่อ-นามสกุล'}),
-    email: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ E-mail'}),
-    position: joi.string().required().trim().messages({'string.empty': 'โปรดระบุตำแหน่ง'}),
-    date: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่สมัคร'}),
+    idbus: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ID รถโดยสาร'}),
+    iduser: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ID ผู้ใช้'}),
+    startdate: joi.string().required().trim().messages({'string.empty': 'กรุณาระบุวันที่และเวลาที่เริ่มงาน'}),
+    enddate: joi.string().required().trim().messages({'string.empty': 'กรุณาระบุวันที่และเวลาที่เลิกงาน'}),
+    status: joi.string().required().trim().messages({'string.empty': 'โปรดระบุสถานะการทำงาน'}),
+    createdate: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่'}),
 })
 
 
 export default function DriverJobForm({ onSubmit }: DriverJobFormProps) {
 
     const { control, handleSubmit, formState: { errors } } = useForm<DriverJobInput>({
-        defaultValues: { username: '', password: '', fullname: '', email :'', position :'',date:'' },
+        defaultValues: { idbus: '', iduser: '', startdate: '', enddate :'', status :'',createdate:'' },
         resolver: joiResolver(schema)
     })
 
@@ -30,86 +30,85 @@ export default function DriverJobForm({ onSubmit }: DriverJobFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4">
             <Controller
                 control={control}
-                name="username"
+                name="idbus"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="Username" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.username?.message}
+                        label="ID รถที่ใช้" 
+                        error={Boolean(errors.idbus)}
+                        helperText={errors.idbus?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="password"
+                name="iduser"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref}
                         {...props}
-                        label="Password"
-                        type="password"
-                        error={Boolean(errors.password)}
-                        helperText={errors.password?.message}
+                        label="ID User"
+                        error={Boolean(errors.iduser)}
+                        helperText={errors.iduser?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="fullname"
+                name="startdate"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props} 
-                        label="ชื่อ-นามสกุล" 
-                        error={Boolean(errors.fullname)}
-                        helperText={errors.fullname?.message}
+                        label="เวลาเริ่มงาน" 
+                        error={Boolean(errors.startdate)}
+                        helperText={errors.startdate?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="email"
+                name="enddate"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="E-mail" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.email?.message}
+                        label="เวลาเลิกงาน" 
+                        error={Boolean(errors.enddate)}
+                        helperText={errors.enddate?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="position"
+                name="status"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="ตำแหน่ง" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.position?.message}
+                        label="สถานะการทำงาน" 
+                        error={Boolean(errors.status)}
+                        helperText={errors.status?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="date"
+                name="createdate"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="ระบุวันที่สมัคร" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.date?.message}
+                        label="ระบุวันที่" 
+                        error={Boolean(errors.createdate)}
+                        helperText={errors.createdate?.message}
                         fullWidth />
                 )}
             />

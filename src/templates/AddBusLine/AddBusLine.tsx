@@ -13,7 +13,7 @@ export default function AddBusLine() {
         <div className="p-4">
             <header className="mb-4">
                 <Typography variant="h6">
-                    เพิ่มรถโดยสารสาธารณะ
+                    เพิ่มเส้นทางรถโดยสาร
                 </Typography>
             </header>
             <Card className="p-4 w-full max-w-md">

@@ -1,12 +1,10 @@
 import { TimerOptions } from "timers"
 
 export interface BusStopInput {
-    username: string
-    password: string
-    fullname: string
-    email : string
-    position : string
-    date : string
+    namebusstop: string,
+    idlocation: string,
+    status: string,
+    createdate: string,
 }
 
 export interface BusStopFormProps {

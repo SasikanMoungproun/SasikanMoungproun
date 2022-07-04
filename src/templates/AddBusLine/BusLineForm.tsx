@@ -10,19 +10,17 @@ import { mdiContentSave } from '@mdi/js'
 
 
 const schema = joi.object<BusLineInput>({
-    username: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Username'}),
-    password: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Password'}),
-    fullname: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ชื่อ-นามสกุล'}),
-    email: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ E-mail'}),
-    position: joi.string().required().trim().messages({'string.empty': 'โปรดระบุตำแหน่ง'}),
-    date: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่สมัคร'}),
+    topic: joi.string().required().trim().messages({'string.empty': 'โปรดใส่เส้นทางเดินรถ'}),
+    details: joi.string().required().trim().messages({'string.empty': 'โปรดระบุรายละเอียด'}),
+    createdate: joi.string().required().trim().messages({'string.empty': 'โปรดระบุวันที่'}),
+    status: joi.string().required().trim().messages({'string.empty': 'โปรดใส่เส้นทางเดินรถ'}),
 })
 
 
 export default function BusForm({ onSubmit }: BusLineFormProps) {
 
     const { control, handleSubmit, formState: { errors } } = useForm<BusLineInput>({
-        defaultValues: { username: '', password: '', fullname: '', email :'', position :'',date:'' },
+        defaultValues: { topic: '', details: '', status :'', createdate:'' },
         resolver: joiResolver(schema)
     })
 
@@ -30,86 +28,57 @@ export default function BusForm({ onSubmit }: BusLineFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4">
             <Controller
                 control={control}
-                name="username"
+                name="topic"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="Username" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.username?.message}
+                        label="เส้นทางรถโดยสาร" 
+                        error={Boolean(errors.topic)}
+                        helperText={errors.topic?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="password"
-                defaultValue=""
-                render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref}
-                        {...props}
-                        label="Password"
-                        type="password"
-                        error={Boolean(errors.password)}
-                        helperText={errors.password?.message}
-                        fullWidth />
-                )}
-            />
-            <Controller
-                control={control}
-                name="fullname"
+                name="details"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props} 
-                        label="ชื่อ-นามสกุล" 
-                        error={Boolean(errors.fullname)}
-                        helperText={errors.fullname?.message}
+                        label="รายละเอียดเส้นทางรถโดยสาร" 
+                        error={Boolean(errors.details)}
+                        helperText={errors.details?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="email"
+                name="status"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="E-mail" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.email?.message}
+                        label="ระบุสถานะของเส้นทาง" 
+                        error={Boolean(errors.status)}
+                        helperText={errors.status?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="position"
+                name="createdate"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="ตำแหน่ง" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.position?.message}
-                        fullWidth />
-                )}
-            />
-            <Controller
-                control={control}
-                name="date"
-                defaultValue=""
-                render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref} 
-                        {...props}
-                        label="ระบุวันที่สมัคร" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.date?.message}
+                        label="ระบุวันที่สร้าง" 
+                        error={Boolean(errors.createdate)}
+                        helperText={errors.createdate?.message}
                         fullWidth />
                 )}
             />

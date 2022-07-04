@@ -13,7 +13,7 @@ export default function AddBusStop() {
         <div className="p-4">
             <header className="mb-4">
                 <Typography variant="h6">
-                    เพิ่มรถโดยสารสาธารณะ
+                    เพิ่มสถานีรถโดยสาร
                 </Typography>
             </header>
             <Card className="p-4 w-full max-w-md">

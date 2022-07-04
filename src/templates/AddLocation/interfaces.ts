@@ -1,12 +1,12 @@
 import { TimerOptions } from "timers"
 
 export interface LocationInput {
-    username: string
-    password: string
-    fullname: string
-    email : string
-    position : string
-    date : string
+    namelocation: string
+    latitude: string
+    longtitude: string
+    time: string
+    status : string
+    createdate : string
 }
 
 export interface LocationFormProps {

@@ -25,15 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/account": [
+    "/location/add": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/account.js"
+      "static/chunks/pages/location/add.js"
     ],
-    "/bus/add": [
+    "/tour/add": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/bus/add.js"
+      "static/chunks/pages/tour/add.js"
     ]
   },
   "ampFirstPages": []

@@ -10,19 +10,19 @@ import { mdiContentSave } from '@mdi/js'
 
 
 const schema = joi.object<LocationInput>({
-    username: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Username'}),
-    password: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ Password'}),
-    fullname: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ ชื่อ-นามสกุล'}),
-    email: joi.string().required().trim().messages({'string.empty': 'โปรดระบุ E-mail'}),
-    position: joi.string().required().trim().messages({'string.empty': 'โปรดระบุตำแหน่ง'}),
-    date: joi.string().required().trim().messages({'string.empty': 'จำเป็นต้องระบุวันที่สมัคร'}),
+    namelocation: joi.string().required().trim().messages({ 'string.empty': 'โปรดระบุชื่อสถานที่' }),
+    latitude: joi.string().required().trim().messages({ 'string.empty': 'โปรดระบุลพติจูด' }),
+    longtitude: joi.string().required().trim().messages({ 'string.empty': 'โปรดระบุลองจิจูด' }),
+    time: joi.string().required().trim().messages({ 'string.empty': 'โปรดระบุเวลา' }),
+    status: joi.string().required().trim().messages({ 'string.empty': 'โปรดระบุสถานะ' }),
+    createdate: joi.string().required().trim().messages({ 'string.empty': 'จำเป็นต้องระบุวันที่' }),
 })
 
 
 export default function LocationForm({ onSubmit }: LocationFormProps) {
 
     const { control, handleSubmit, formState: { errors } } = useForm<LocationInput>({
-        defaultValues: { username: '', password: '', fullname: '', email :'', position :'',date:'' },
+        defaultValues: { namelocation: '', latitude: '', longtitude: '', time: '', status: '', createdate: '' },
         resolver: joiResolver(schema)
     })
 
@@ -30,86 +30,85 @@ export default function LocationForm({ onSubmit }: LocationFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4">
             <Controller
                 control={control}
-                name="username"
+                name="namelocation"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref} 
-                        {...props}
-                        label="Username" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.username?.message}
-                        fullWidth />
-                )}
-            />
-            <Controller
-                control={control}
-                name="password"
-                defaultValue=""
-                render={({ field: { ref, ...props } }) => (
-                    <TextField 
+                    <TextField
                         inputRef={ref}
                         {...props}
-                        label="Password"
-                        type="password"
-                        error={Boolean(errors.password)}
-                        helperText={errors.password?.message}
+                        label="ชื่อสถานที่"
+                        error={Boolean(errors.namelocation)}
+                        helperText={errors.namelocation?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="fullname"
+                name="latitude"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref} 
-                        {...props} 
-                        label="ชื่อ-นามสกุล" 
-                        error={Boolean(errors.fullname)}
-                        helperText={errors.fullname?.message}
-                        fullWidth />
-                )}
-            />
-            <Controller
-                control={control}
-                name="email"
-                defaultValue=""
-                render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref} 
+                    <TextField
+                        inputRef={ref}
                         {...props}
-                        label="E-mail" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.email?.message}
+                        label="ละติจูด"
+                        error={Boolean(errors.latitude)}
+                        helperText={errors.latitude?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="position"
+                name="longtitude"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref} 
+                    <TextField
+                        inputRef={ref}
                         {...props}
-                        label="ตำแหน่ง" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.position?.message}
+                        label="ลองจิจูด"
+                        error={Boolean(errors.longtitude)}
+                        helperText={errors.longtitude?.message}
                         fullWidth />
                 )}
             />
             <Controller
                 control={control}
-                name="date"
+                name="time"
                 defaultValue=""
                 render={({ field: { ref, ...props } }) => (
-                    <TextField 
-                        inputRef={ref} 
+                    <TextField
+                        inputRef={ref}
                         {...props}
-                        label="ระบุวันที่สมัคร" 
-                        error={Boolean(errors.username)}
-                        helperText={errors.date?.message}
+                        label="ระบุเวลา"
+                        error={Boolean(errors.time)}
+                        helperText={errors.time?.message}
+                        fullWidth />
+                )}
+            />
+            <Controller
+                control={control}
+                name="status"
+                defaultValue=""
+                render={({ field: { ref, ...props } }) => (
+                    <TextField
+                        inputRef={ref}
+                        {...props}
+                        label="สถานะ"
+                        error={Boolean(errors.status)}
+                        helperText={errors.status?.message}
+                        fullWidth />
+                )}
+            />
+            <Controller
+                control={control}
+                name="createdate"
+                defaultValue=""
+                render={({ field: { ref, ...props } }) => (
+                    <TextField
+                        inputRef={ref}
+                        {...props}
+                        label="ระบุวันที่"
+                        error={Boolean(errors.createdate)}
+                        helperText={errors.createdate?.message}
                         fullWidth />
                 )}
             />

@@ -79,7 +79,8 @@ export default function AccountForm({ onSubmit }: AccountFormProps) {
                     <TextField 
                         inputRef={ref} 
                         {...props}
-                        label="E-mail" 
+                        label="E-mail"
+                        type="email" 
                         error={Boolean(errors.username)}
                         helperText={errors.email?.message}
                         fullWidth />
